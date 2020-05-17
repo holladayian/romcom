@@ -136,9 +136,13 @@ function showSavedCoverArray() {
   }
 }
 
-// function deleteMiniCover() {
-//   console.log("test");
-// }
+savedCoversSection.addEventListener("dblclick", deleteMiniCover);
+
+function deleteMiniCover() {
+  console.log("test");
+}
+
+
 // When a user clicks the “Save Cover” button, the current cover will be added to the savedCovers array
 // If a user clicks the “Save Cover” more than once on a single cover, it will still only be saved once (no duplicates)
 // When a user clicks the “View Saved Covers” button, we should see the saved covers section
