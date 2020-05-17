@@ -18,7 +18,7 @@ var userDesc1 = document.querySelector(".user-desc1");
 var userDesc2 = document.querySelector(".user-desc2");
 var createMyBookButton = document.querySelector(".create-new-book-button");
 var form = document.querySelector("form");
-
+var savedCoversSection = document.querySelector(".saved-covers-section");
 
 // We've provided a few variables below
 var savedCovers = [
@@ -34,11 +34,14 @@ homeButton.addEventListener("click", toggleHomeView);
 makeNewButton.addEventListener("click", toggleFormView);
 viewSavedButton.addEventListener("click", toggleSaveView);
 createMyBookButton.addEventListener("click", makeUserCover);
+saveCoverButton.addEventListener("click", pushSavedCover);
 
 
 // Create your event handlers and other functions here 👇
 
 //optional extension: remove unnecessary functionality of formView button while on form page
+// optional extension: stop input value from causing duplicates in arrays
+// optional extension: make saved covers smaller
 
 
 
@@ -67,6 +70,7 @@ function toggleSaveView() {
   homeButton.classList.remove("hidden");
   randomCoverButton.classList.add("hidden");
   saveCoverButton.classList.add("hidden");
+  showSavedCoverArray();
 }
 
 
@@ -94,26 +98,48 @@ function makeUserCover(event) {
   currentCover = new Cover(coverImgSrc, title, tagline1, tagline2);
   pushUserCover();
   form.reset();
+  toggleHomeView();
   displayCover(currentCover);
 }
 
 function pushUserCover(coverImgSrc, title, tagline1, tagline2) {
   covers.push(userCover.value);
-  titles.push(userCover.value);
+  titles.push(userTitle.value);
   descriptors.push(userDesc1.value);
   descriptors.push(userDesc2.value);
 }
 
 function displayCover(cover) {
-  console.log(cover);
   coverImageElement.setAttribute("src", cover.cover);
   title.innerText = cover.title;
   tagline1.innerText = cover.tagline1;
   tagline2.innerText = cover.tagline2;
 };
 
+function pushSavedCover() {
+  if (!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover);
+  }
+}
 
-// use query selector to access img, title, tagline, disc1 and disc2
-// on page load (eventlistener) random title, image and discriptors will appear on the page
-// function that will insert the selected elements into the framework for the cover
-// function that will insert the framework onto the DOM
+function showSavedCoverArray() {
+  savedCoversSection.innerText = "";
+  for (var i = 0; i < savedCovers.length; i++) {
+    var newMiniCover = `<section class="main-cover">
+    <img class="cover-image" src=${savedCovers[i].cover}>
+    <h2 class="cover-title">${savedCovers[i].title}</h2>
+    <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+    <img class="price-tag" src="./assets/price.png">
+    <img class="overlay" src="./assets/overlay.png">
+  </section>`;
+  savedCoversSection.insertAdjacentHTML("afterbegin", newMiniCover);
+  }
+}
+
+// function deleteMiniCover() {
+//   console.log("test");
+// }
+// When a user clicks the “Save Cover” button, the current cover will be added to the savedCovers array
+// If a user clicks the “Save Cover” more than once on a single cover, it will still only be saved once (no duplicates)
+// When a user clicks the “View Saved Covers” button, we should see the saved covers section
+// All the covers in the savedCovers array should be displayed in the saved covers section
