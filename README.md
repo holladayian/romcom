@@ -30,9 +30,9 @@ In short, this webpage will:
 
 ## Challenges
 - Working remotely
+- Using Git workflow consistly and effectively
 - Learning how to manipulate the DOM
 - Learning how to integrate multiple data types
-- Learning how to properly collaborate through git workflow
 - Understanding event bubbling
 - Learning how to utilize adjacent HTML insertion
 
