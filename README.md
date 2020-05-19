@@ -30,7 +30,7 @@ In short, this webpage will:
 
 ## Challenges
 - Working remotely
-- Using Git workflow consistly and effectively
+- Using Git workflow consistently and effectively
 - Learning how to manipulate the DOM
 - Learning how to integrate multiple data types
 - Understanding event bubbling
@@ -40,17 +40,23 @@ In short, this webpage will:
 https://github.com/holladayian -Ian Holladay  
 https://github.com/nware1066 -Naomi Ware
 
+
+
 This is the home page. It is what you will see when the page loads.
-![image of home page](/readmePictures/homePage.png)
+![image of home page](/readmePictures/homeView.png)
+
+
 
 On this page, users can create a custom cover (as weird and cheesy as they like).
 ![image of form page](/readmePictures/formView.png)
+
+
 
 Here is a picture of our saved cover page. You can a collection of covers we had saved.
 ![image of saved covers page](/readmePictures/viewSavedCovers.png)
 
 Here is a gif of our page in action!
-![gif of page working](/readmePictures/giphy.mp4)
+https://giphy.com/gifs/romcom-dApBYBdOMmYpa48bAP
 
 ####Project spec & rubric can be found here:
 https://frontend.turing.io/projects/module-1/romcom-pair.html
