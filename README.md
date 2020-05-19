@@ -42,21 +42,21 @@ https://github.com/nware1066 -Naomi Ware
 
 
 
-This is the home page. It is what you will see when the page loads.
-![image of home page](/readmePictures/homeView.png)
+This is the home page. It is what you will see when the page loads.<br />
+![image of home page](/readmePictures/homeView.png)<br />
+<br />
 
+On this page, users can create a custom cover (as weird and cheesy as they like).<br />
+![image of form page](/readmePictures/formView.png)<br />
+<br />
 
+Here is a picture of our saved cover page. You can a collection of covers we had saved.<br />
+![image of saved covers page](/readmePictures/viewSavedCovers.png)<br />
+<br />
 
-On this page, users can create a custom cover (as weird and cheesy as they like).
-![image of form page](/readmePictures/formView.png)
+Here is a gif of our page in action!<br />
+https://giphy.com/gifs/romcom-dApBYBdOMmYpa48bAP<br />
+<br />
 
-
-
-Here is a picture of our saved cover page. You can a collection of covers we had saved.
-![image of saved covers page](/readmePictures/viewSavedCovers.png)
-
-Here is a gif of our page in action!
-https://giphy.com/gifs/romcom-dApBYBdOMmYpa48bAP
-
-####Project spec & rubric can be found here:
+#### Project spec & rubric can be found here:
 https://frontend.turing.io/projects/module-1/romcom-pair.html
