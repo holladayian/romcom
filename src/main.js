@@ -45,8 +45,6 @@ savedCoversSection.addEventListener("dblclick", deleteMiniCover);
 // optional extension: stop input value from causing duplicates in arrays
 // optional extension: make saved covers smaller
 
-
-
 function toggleHomeView() {
   homeView.classList.remove("hidden");
   formView.classList.add("hidden");
@@ -75,9 +73,6 @@ function toggleSaveView() {
   showSavedCoverArray();
 }
 
-
-
-// We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
@@ -140,7 +135,6 @@ function showSavedCoverArray() {
   }
 }
 
-
 function deleteMiniCover(event) {
   if (event.target.closest(".main-cover")) {
     var selectedCoverHTML = event.target.closest(".main-cover");
@@ -152,11 +146,3 @@ function deleteMiniCover(event) {
     showSavedCoverArray();
   }
 }
-
-
-
-
-// When a user clicks the “Save Cover” button, the current cover will be added to the savedCovers array
-// If a user clicks the “Save Cover” more than once on a single cover, it will still only be saved once (no duplicates)
-// When a user clicks the “View Saved Covers” button, we should see the saved covers section
-// All the covers in the savedCovers array should be displayed in the saved covers section
