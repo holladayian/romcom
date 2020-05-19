@@ -19,6 +19,7 @@ var userDesc2 = document.querySelector(".user-desc2");
 var createMyBookButton = document.querySelector(".create-new-book-button");
 var form = document.querySelector("form");
 var savedCoversSection = document.querySelector(".saved-covers-section");
+var mainCover = document.querySelector(".main-cover");
 
 // We've provided a few variables below
 var savedCovers = [
@@ -35,6 +36,7 @@ makeNewButton.addEventListener("click", toggleFormView);
 viewSavedButton.addEventListener("click", toggleSaveView);
 createMyBookButton.addEventListener("click", makeUserCover);
 saveCoverButton.addEventListener("click", pushSavedCover);
+savedCoversSection.addEventListener("dblclick", deleteMiniCover);
 
 
 // Create your event handlers and other functions here 👇
@@ -125,22 +127,33 @@ function pushSavedCover() {
 function showSavedCoverArray() {
   savedCoversSection.innerText = "";
   for (var i = 0; i < savedCovers.length; i++) {
-    var newMiniCover = `<section class="main-cover">
-    <img class="cover-image" src=${savedCovers[i].cover}>
-    <h2 class="cover-title">${savedCovers[i].title}</h2>
-    <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
-    <img class="price-tag" src="./assets/price.png">
-    <img class="overlay" src="./assets/overlay.png">
-  </section>`;
-  savedCoversSection.insertAdjacentHTML("afterbegin", newMiniCover);
+    var newMiniCover = `
+      <section class="main-cover" data-id=${savedCovers[i].id}>
+        <img class="cover-image" src=${savedCovers[i].cover}>
+        <h2 class="cover-title">${savedCovers[i].title}</h2>
+        <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+        <img class="price-tag" src="./assets/price.png">
+        <img class="overlay" src="./assets/overlay.png">
+      </section>
+    `;
+    savedCoversSection.insertAdjacentHTML("afterbegin", newMiniCover);
   }
 }
 
-savedCoversSection.addEventListener("dblclick", deleteMiniCover);
 
-function deleteMiniCover() {
-  console.log("test");
+function deleteMiniCover(event) {
+  if (event.target.closest(".main-cover")) {
+    var selectedCoverHTML = event.target.closest(".main-cover");
+    for (var i = 0; i < savedCovers.length; i++) {
+      if (savedCovers[i].id === Number(selectedCoverHTML.dataset.id)) {
+        savedCovers.splice(i, 1);
+      }
+    }
+    showSavedCoverArray();
+  }
 }
+
+
 
 
 // When a user clicks the “Save Cover” button, the current cover will be added to the savedCovers array
